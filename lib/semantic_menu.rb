@@ -73,7 +73,7 @@ module ActionView
         if url_string =~ /^\w+:\/\//
           url_string == "#{request.protocol}#{request.host_with_port}#{request.request_uri}"
         else
-          url_string == request.request_uri
+          url_string.sub(/\/$/, "") == request.request_uri.sub(/\/$/, "")
         end
       end
     end
